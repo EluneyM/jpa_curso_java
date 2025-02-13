@@ -26,10 +26,10 @@ public class Pago {
     @Column(name = "fecha_pago")
     private Date fechaPago;
 
-    @Column(name = "forma_pago")
+    @Column(name = "forma_pago", length = 255)
     private String formaPago;
 
-    @Column(name = "id_transaccion")
+    @Column(name = "id_transaccion", length = 255)
     private String idTransaccion;
 
     @Column(name = "total")

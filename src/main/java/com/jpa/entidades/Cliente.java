@@ -20,31 +20,31 @@ public class Cliente {
     @Column(name = "codigo_cliente")
     private int codigoCliente;
 
-    @Column(name = "nombre_cliente")
+    @Column(name = "nombre_cliente", length = 255)
     private String nombreCliente;
 
-    @Column(name = "nombre_contacto")
+    @Column(name = "nombre_contacto", length = 255)
     private String nombreContacto;
 
-    @Column(name = "apellido_contacto")
+    @Column(name = "apellido_contacto", length = 255)
     private String apellidoContacto;
 
-    @Column(name = "telefono")
+    @Column(name = "telefono", length = 255)
     private String telefono;
 
-    @Column(name = "fax")
+    @Column(name = "fax", length = 255)
     private String fax;
 
-    @Column(name = "ciudad")
+    @Column(name = "ciudad", length = 255)
     private String ciudad;
 
-    @Column(name = "region")
+    @Column(name = "region", length = 255)
     private String region;
 
-    @Column(name = "pais")
+    @Column(name = "pais", length = 255)
     private String pais;
 
-    @Column(name = "codigo_postal")
+    @Column(name = "codigo_postal", length = 255)
     private String codigoPostal;
 
     @Column(name = "limite_credito")

@@ -16,16 +16,16 @@ public class GamaProducto {
     @Column(name = "id_gama")
     private int idGama;
 
-    @Column(name = "descripcion_texto")
+    @Column(name = "descripcion_texto", length = 255)
     private String descripcionTexto;
 
-    @Column(name = "descripcion_html")
+    @Column(name = "descripcion_html", length = 255)
     private String descripcionHtml;
 
-    @Column(name = "gama")
+    @Column(name = "gama", length = 255)
     private String gama;
 
-    @Column(name = "imagen")
+    @Column(name = "imagen", length = 255)
     private String imagen;
 
     public GamaProducto() {
