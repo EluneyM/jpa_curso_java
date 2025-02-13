@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -36,8 +35,8 @@ public class Producto {
     @Column(name = "nombre", length = 255)
     private String nombre;
 
-    @Column(name = "precio")
-    private int precio;
+    @Column(name = "precio_proveedor")
+    private int precioProveedor;
 
     @Column(name = "precio_venta")
     private int precioVenta;
@@ -111,12 +110,12 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
-        return precio;
+    public int getPrecioProveedor() {
+        return precioProveedor;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setPrecioProveedor(int precioProveedor) {
+        this.precioProveedor = precioProveedor;
     }
 
     public int getPrecioVenta() {
