@@ -20,16 +20,16 @@ public class Producto {
     @Column(name = "cantidad_en_stock")
     private int cantidadEnStock;
 
-    @Column(name = "codigo_producto")
+    @Column(name = "codigo_producto", length = 255)
     private String codigoProducto;
 
-    @Column(name = "descripcion")
+    @Column(name = "descripcion", length = 255)
     private String descripcion;
 
-    @Column(name = "dimensiones")
+    @Column(name = "dimensiones", length = 255)
     private String dimensiones;
 
-    @Column(name = "nombre")
+    @Column(name = "nombre", length = 255)
     private String nombre;
 
     @Column(name = "precio")
@@ -38,7 +38,7 @@ public class Producto {
     @Column(name = "precio_venta")
     private int precioVenta;
 
-    @Column(name = "proveedor")
+    @Column(name = "proveedor", length = 255)
     private String proveedor;
 
     @ManyToOne
