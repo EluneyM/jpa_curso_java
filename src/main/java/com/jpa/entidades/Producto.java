@@ -56,11 +56,11 @@ public class Producto {
         this.idProducto = idProducto;
     }
 
-    public String getCantidadEnStock() {
+    public int getCantidadEnStock() {
         return cantidadEnStock;
     }
 
-    public void setCantidadEnStock(String cantidadEnStock) {
+    public void setCantidadEnStock(int cantidadEnStock) {
         this.cantidadEnStock = cantidadEnStock;
     }
 
