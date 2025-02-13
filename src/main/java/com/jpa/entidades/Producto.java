@@ -18,7 +18,7 @@ public class Producto {
     private int idProducto;
 
     @Column(name = "cantidad_en_stock")
-    private String cantidadEnStock;
+    private int cantidadEnStock;
 
     @Column(name = "codigo_producto")
     private String codigoProducto;
