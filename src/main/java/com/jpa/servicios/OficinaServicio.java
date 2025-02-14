@@ -33,4 +33,8 @@ public class OficinaServicio {
         }
 
     }
+
+    public Oficina buscarOficina(int id) {
+        return daoOficina.buscarOficina(id);
+    }
 }
