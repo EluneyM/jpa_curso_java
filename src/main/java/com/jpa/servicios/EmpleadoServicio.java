@@ -1,5 +1,7 @@
 package com.jpa.servicios;
 
+import java.util.List;
+
 import com.jpa.entidades.Empleado;
 import com.jpa.persistencia.EmpleadoDAO;
 
@@ -13,4 +15,17 @@ public class EmpleadoServicio {
     public Empleado buscarEmplado(int id) {
         return daoEmpleado.buscarEmpleado(id);
     }
+
+    public void listarEmpleadosPorOficina(int idOficina) throws Exception {
+        List<Empleado> empleadosOficina = daoEmpleado.listarEmpleadoPorOficina(idOficina);
+        imprimirLista(empleadosOficina);
+    }
+
+    public void imprimirLista(List<Empleado> listaRecibida) throws Exception {
+        for (Empleado empleado : listaRecibida) {
+            System.out.println(empleado.getCodigoEmpleado() + " - " + empleado.getApellido() + " - "
+                    + empleado.getNombre());
+        }
+    }
+
 }

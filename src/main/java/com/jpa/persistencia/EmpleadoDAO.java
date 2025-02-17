@@ -1,5 +1,7 @@
 package com.jpa.persistencia;
 
+import java.util.List;
+
 import com.jpa.entidades.Empleado;
 
 import jakarta.persistence.EntityManager;
@@ -34,4 +36,11 @@ public class EmpleadoDAO {
             em.getTransaction().commit();
         }
     }
+
+    public List<Empleado> listarEmpleadoPorOficina(int idOficina) throws Exception {
+        return em.createQuery("SELECT c FROM Empleado c WHERE c.Oficina.idOficina = :id", Empleado.class)
+                .setParameter("id", idOficina)
+                .getResultList();
+    }
+
 }
