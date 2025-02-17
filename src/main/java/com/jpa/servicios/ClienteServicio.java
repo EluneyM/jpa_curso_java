@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.jpa.entidades.Cliente;
 import com.jpa.entidades.Empleado;
-import com.jpa.entidades.Cliente;
 import com.jpa.persistencia.ClienteDAO;
 
 public class ClienteServicio {
@@ -43,9 +42,19 @@ public class ClienteServicio {
 
     }
 
-     public void listarClientes() throws Exception {
+    public void listarClientes() throws Exception {
         List<Cliente> todasClientes = daoCliente.listarTodas();
         imprimirLista(todasClientes);
+    }
+
+    public void listarClientes(String nombreRecibido) throws Exception {
+        List<Cliente> clientesNombre = daoCliente.listarClientesPorNombre(nombreRecibido);
+        imprimirLista(clientesNombre);
+    }
+
+    public void listarClientesPorCiudad(String nombreCiudad) throws Exception {
+        List<Cliente> clientesNombre = daoCliente.listarClientesPorCiudad(nombreCiudad);
+        imprimirLista(clientesNombre);
     }
 
     public void imprimirLista(List<Cliente> listaRecibida) throws Exception {
