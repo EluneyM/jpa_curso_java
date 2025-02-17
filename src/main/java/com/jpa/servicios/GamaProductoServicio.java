@@ -11,14 +11,13 @@ public class GamaProductoServicio {
         this.daoGamaProducto = new GamaProductoDAO();
     }
 
-    public void crearGamaproducto(int idGama, String descripcionTexto, String descripcionHtml, String gama,
+    public void crearGamaproducto(String descripcionTexto, String descripcionHtml, String gama,
             String imagen) {
 
         try {
             // Crear una nueva instancia de GamaProducto
             GamaProducto GamaProductoNueva = new GamaProducto();
 
-            GamaProductoNueva.setIdGama(idGama);
             GamaProductoNueva.setDescripcionTexto(descripcionTexto);
             GamaProductoNueva.setDescripcionHtml(descripcionHtml);
             GamaProductoNueva.setGama(gama);

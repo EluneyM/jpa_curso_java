@@ -16,14 +16,18 @@ public class Application {
         // "11111111",
         // "CP5000");
 
-        ClienteServicio clienteServicio = new ClienteServicio();
+        // ClienteServicio clienteServicio = new ClienteServicio();
 
-        Empleado empleado = (new EmpleadoServicio()).buscarEmplado(1);
+        // Empleado empleado = (new EmpleadoServicio()).buscarEmplado(1);
 
-        clienteServicio.crearCliente(123423580, "Marcos", "Contreras", "999999999", "9999999999", "Viedma", "Río Negro",
-                "Argentina", "8500", 21341234.23, empleado);
+        // clienteServicio.crearCliente(123423580, "Marcos", "Contreras", "999999999", "9999999999", "Viedma", "Río Negro",
+        //         "Argentina", "8500", 21341234.23, empleado);
 
         GamaProductoServicio gamaProductoServicio = new GamaProductoServicio();
+
+        gamaProductoServicio.crearGamaproducto(
+                "El teléfono móvil modelo X es ideal para aquellos que buscan un equilibrio entre rendimiento y precio.",
+                null, "Gama Media", null);
 
     }
 }
