@@ -28,4 +28,13 @@ public class EmpleadoServicio {
         }
     }
 
+    public void imprimirEmpleadosExcluyendo(int idEmpleado) throws Exception {
+        List<Empleado> listaEmpleados = daoEmpleado.listarEmpleadosExcluyendo(idEmpleado);
+        for (Empleado empleado : listaEmpleados) {
+            System.out.println(empleado.getNombre() + " - " +
+                    empleado.getOficina().getCiudad() + " - " +
+                    empleado.getOficina().getCodigoOficina());
+        }
+    }
+
 }

@@ -39,6 +39,14 @@ public class ProductoDAO {
     }
 
     public List<Producto> listarTodas() {
-        return this.em.createQuery("SELECT p FROM Producto p", Producto.class).getResultList();
+        return this.em.createQuery("SELECT p FROM Producto p JOIN FETCH p.gama gp", Producto.class)
+                .getResultList();
+    }
+
+    public List<Producto> listarTodasPorId(int idGama) {
+        return this.em
+                .createQuery("SELECT p FROM Producto p JOIN FETCH p.gama gp WHERE gp.idGama = :idGama", Producto.class)
+                .setParameter("idGama", idGama)
+                .getResultList();
     }
 }

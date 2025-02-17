@@ -43,4 +43,14 @@ public class EmpleadoDAO {
                 .getResultList();
     }
 
+    public List<Empleado> listarEmpleadosExcluyendo(int idEmpleado) throws Exception {
+        return em.createQuery(
+                "SELECT e FROM Empleado e " +
+                        "JOIN FETCH e.Oficina o " +
+                        "WHERE e.idEmpleado <> :idEmpleado",
+                Empleado.class)
+                .setParameter("idEmpleado", idEmpleado)
+                .getResultList();
+    }
+
 }

@@ -17,10 +17,15 @@ public class ProductoServicio {
         imprimirLista(todasProductos);
     }
 
-    public void imprimirLista(List<Producto> listaRecibida) throws Exception {
+       public void listarProductosPorId(int idGama) throws Exception {
+        List<Producto> todasProductos = daoProducto.listarTodasPorId(idGama);
+        imprimirLista(todasProductos);
+    }
+
+    private void imprimirLista(List<Producto> listaRecibida) throws Exception {
         for (Producto unitariaProducto : listaRecibida) {
             System.out.println(unitariaProducto.getCodigoProducto() + " - " + unitariaProducto.getNombre() + " - "
-                    + unitariaProducto.getDescripcion());
+                    + unitariaProducto.getDescripcion() + unitariaProducto.getGama().getDescripcionHtml());
         }
     }
 }
