@@ -1,5 +1,7 @@
 package com.jpa.persistencia;
 
+import java.util.List;
+
 import com.jpa.entidades.Producto;
 
 import jakarta.persistence.EntityManager;
@@ -34,5 +36,9 @@ public class ProductoDAO {
             em.remove(producto);
             em.getTransaction().commit();
         }
+    }
+
+    public List<Producto> listarTodas() {
+        return this.em.createQuery("SELECT p FROM Producto p", Producto.class).getResultList();
     }
 }

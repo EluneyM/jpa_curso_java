@@ -1,7 +1,10 @@
 package com.jpa.servicios;
 
+import java.util.List;
+
 import com.jpa.entidades.Cliente;
 import com.jpa.entidades.Empleado;
+import com.jpa.entidades.Cliente;
 import com.jpa.persistencia.ClienteDAO;
 
 public class ClienteServicio {
@@ -39,4 +42,17 @@ public class ClienteServicio {
         }
 
     }
+
+     public void listarClientes() throws Exception {
+        List<Cliente> todasClientes = daoCliente.listarTodas();
+        imprimirLista(todasClientes);
+    }
+
+    public void imprimirLista(List<Cliente> listaRecibida) throws Exception {
+        for (Cliente unitariaCliente : listaRecibida) {
+            System.out.println(unitariaCliente.getCodigoCliente() + " - " + unitariaCliente.getCiudad() + " - "
+                    + unitariaCliente.getPais());
+        }
+    }
+
 }

@@ -1,6 +1,9 @@
 package com.jpa.persistencia;
 
+import java.util.List;
+
 import com.jpa.entidades.Cliente;
+import com.jpa.entidades.Oficina;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -33,5 +36,10 @@ public class ClienteDAO {
             em.remove(cliente);
             em.getTransaction().commit();
         }
+    }
+
+    public List<Cliente> listarTodas() throws Exception {
+        return em.createQuery("SELECT c FROM Cliente c", Cliente.class)
+                .getResultList();
     }
 }
