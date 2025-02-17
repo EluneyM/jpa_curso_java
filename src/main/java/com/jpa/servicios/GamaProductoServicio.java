@@ -1,5 +1,7 @@
 package com.jpa.servicios;
 
+import java.security.InvalidParameterException;
+
 import com.jpa.entidades.GamaProducto;
 import com.jpa.persistencia.GamaProductoDAO;
 
@@ -30,5 +32,23 @@ public class GamaProductoServicio {
             System.out.println(e.toString() + "No se guardo la nueva GamaProducto de manera correcta");
         }
 
+    }
+
+    private void validarData(String descripcionTexto, String gama) throws InvalidParameterException {
+        if (descripcionTexto == null) {
+            throw new InvalidParameterException("Descripción es obligatoria.");
+        }
+
+        if (descripcionTexto.length() > 255) {
+            throw new InvalidParameterException("Descripción no puede contener más de 255 caracteres.");
+        }
+
+        if (gama == null) {
+            throw new InvalidParameterException("Gama es obligatoria.");
+        }
+
+        if (gama.length() > 255) {
+            throw new InvalidParameterException("Gama no puede contener más de 255 caracteres.");
+        }
     }
 }
