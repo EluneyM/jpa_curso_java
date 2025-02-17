@@ -1,5 +1,7 @@
 package com.jpa.persistencia;
 
+import java.util.List;
+
 import com.jpa.entidades.Oficina;
 
 import jakarta.persistence.EntityManager;
@@ -34,5 +36,10 @@ public class OficinaDAO {
             em.remove(oficina);
             em.getTransaction().commit();
         }
+    }
+
+    public List<Oficina> listarTodas() throws Exception {
+        return em.createQuery("SELECT o FROM Oficina o", Oficina.class)
+                .getResultList();
     }
 }

@@ -1,5 +1,7 @@
 package com.jpa.servicios;
 
+import java.util.List;
+
 import com.jpa.entidades.Oficina;
 import com.jpa.persistencia.OficinaDAO;
 
@@ -37,4 +39,17 @@ public class OficinaServicio {
     public Oficina buscarOficina(int id) {
         return daoOficina.buscarOficina(id);
     }
+
+    public void listarOficinas() throws Exception {
+        List<Oficina> todasOficinas = daoOficina.listarTodas();
+        imprimirLista(todasOficinas);
+    }
+
+    public void imprimirLista(List<Oficina> listaRecibida) throws Exception {
+        for (Oficina unitariaOficina : listaRecibida) {
+            System.out.println(unitariaOficina.getCodigoOficina() + " - " + unitariaOficina.getCiudad() + " - "
+                    + unitariaOficina.getPais());
+        }
+    }
+
 }
