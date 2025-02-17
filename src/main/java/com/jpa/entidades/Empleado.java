@@ -1,5 +1,6 @@
 package com.jpa.entidades;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,7 +41,8 @@ public class Empleado {
     @Column(name = "puesto")
     private String puesto;
 
-    @ManyToOne // "Muchos empleados pueden pertenecer a una misma oficina"
+    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST }) // "Muchos empleados pueden pertenecer a una misma
+                                                                     // oficina"
     @JoinColumn(name = "id_oficina") //// Establezco la relacion con Oficina. Indico con que "dato se relacionan".
     private Oficina Oficina;
 
