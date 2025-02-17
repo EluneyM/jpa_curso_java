@@ -1,5 +1,7 @@
 package com.jpa.persistencia;
 
+import java.util.List;
+
 import com.jpa.entidades.Pago;
 
 import jakarta.persistence.EntityManager;
@@ -34,5 +36,13 @@ public class PagoDAO {
             em.remove(pago);
             em.getTransaction().commit();
         }
+    }
+
+    public List<Pago> listarPagosPorNombreDeContacto(String nombreContacto) {
+        return this.em
+                .createQuery("SELECT p FROM Pago p JOIN FETCH p.cliente c WHERE c.nombreContacto LIKE :nombreContacto",
+                        Pago.class)
+                .setParameter("nombreContacto", "%" + nombreContacto + "%")
+                .getResultList();
     }
 }

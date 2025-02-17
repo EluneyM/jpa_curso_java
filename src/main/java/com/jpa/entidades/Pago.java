@@ -39,4 +39,55 @@ public class Pago {
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
     // GETTERS Y SETTERS / CONSTRUCTOR VACÍO
+
+    public Pago() {
+    }
+
+    public int getIdPago() {
+        return idPago;
+    }
+
+    public void setIdPago(int idPago) {
+        this.idPago = idPago;
+    }
+
+    public Date getFechaPago() {
+        return fechaPago;
+    }
+
+    public void setFechaPago(Date fechaPago) {
+        this.fechaPago = fechaPago;
+    }
+
+    public String getFormaPago() {
+        return formaPago;
+    }
+
+    public void setFormaPago(String formaPago) {
+        this.formaPago = formaPago;
+    }
+
+    public String getIdTransaccion() {
+        return idTransaccion;
+    }
+
+    public void setIdTransaccion(String idTransaccion) {
+        this.idTransaccion = idTransaccion;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }

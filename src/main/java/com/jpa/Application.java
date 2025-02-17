@@ -3,6 +3,7 @@ package com.jpa;
 import com.jpa.servicios.ClienteServicio;
 import com.jpa.servicios.EmpleadoServicio;
 import com.jpa.servicios.OficinaServicio;
+import com.jpa.servicios.PagoServicio;
 import com.jpa.servicios.ProductoServicio;
 
 public class Application {
@@ -12,6 +13,7 @@ public class Application {
         ClienteServicio clienteServicio = new ClienteServicio();
         ProductoServicio productoServicio = new ProductoServicio();
         EmpleadoServicio empleadoServicio = new EmpleadoServicio();
+        PagoServicio pagoServicio = new PagoServicio();
 
         try {
 
@@ -26,7 +28,8 @@ public class Application {
             // clienteServicio.listarClientes();
 
             // // IMPRIMIR TODOS LOS PRODUCTOS
-            // System.out.println("*****************PRODUCTOS DISPONIBLES******************");
+            // System.out.println("*****************PRODUCTOS
+            // DISPONIBLES******************");
             // System.out.println("ID PRODUCTO // NOMBRE PRODUCTO // DESCRIPCION PRODUCTO");
             // productoServicio.listarProductos();
 
@@ -45,10 +48,12 @@ public class Application {
             // System.out.println("ID CLIENTE // APELLIDO CLIENTE // NOMBRE CLIENTE");
             // clienteServicio.listarClientesPorCiudad("Madrid");
 
-            // TODOS LOS EMPLEADOS CON CODIGO DE OFICINA QUE NO SEAN EL ID 8 
+            // TODOS LOS EMPLEADOS CON CODIGO DE OFICINA QUE NO SEAN EL ID 8
             // empleadoServicio.imprimirEmpleadosExcluyendo(8);
 
-            productoServicio.listarProductosPorId(4);
+            // productoServicio.listarProductosPorId(4);
+
+            pagoServicio.listarPagosPorNombreDeContacto("Akane");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
