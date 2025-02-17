@@ -3,7 +3,6 @@ package com.jpa.persistencia;
 import java.util.List;
 
 import com.jpa.entidades.Cliente;
-import com.jpa.entidades.Oficina;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -42,4 +41,17 @@ public class ClienteDAO {
         return em.createQuery("SELECT c FROM Cliente c", Cliente.class)
                 .getResultList();
     }
+
+    public List<Cliente> listarClientesPorNombre(String nombreABuscar) throws Exception {
+        return em.createQuery("SELECT c FROM Cliente c WHERE c.nombreContacto LIKE :nombre", Cliente.class)
+                .setParameter("nombre", "%" + nombreABuscar + "%")
+                .getResultList();
+    }
+
+    public List<Cliente> listarClientesPorCiudad(String ciudadABuscar) throws Exception {
+        return em.createQuery("SELECT c FROM Cliente c WHERE c.ciudad LIKE :nombreCiudad", Cliente.class)
+                .setParameter("nombreCiudad", "%" + ciudadABuscar + "%")
+                .getResultList();
+    }
+
 }
