@@ -17,6 +17,7 @@ public class GamaProductoServicio {
             String imagen) {
 
         try {
+            this.validarData(descripcionTexto, gama);
             // Crear una nueva instancia de GamaProducto
             GamaProducto GamaProductoNueva = new GamaProducto();
 
