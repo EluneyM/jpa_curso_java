@@ -45,7 +45,7 @@ public class Editorial {
         this.nombre = nombre;
     }
 
-    public boolean getAlta() {
+    public boolean isAlta() {
         return alta;
     }
 

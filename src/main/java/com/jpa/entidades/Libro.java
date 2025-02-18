@@ -66,7 +66,7 @@ public class Libro {
         this.ejemplares = ejemplares;
     }
 
-    public Boolean getAlta() {
+    public Boolean isAlta() {
         return alta;
     }
 

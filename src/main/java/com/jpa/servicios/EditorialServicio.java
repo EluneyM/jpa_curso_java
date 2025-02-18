@@ -49,7 +49,7 @@ public class EditorialServicio {
     public void listaEditoriales() throws Exception {
         System.out.println("ID | Nombre | Alta");
         for (Editorial e : this.editorialDao.listar()) {
-            System.out.println(e.getId() + " | " + e.getNombre() + " | " + e.getAlta());
+            System.out.println(e.getId() + " | " + e.getNombre() + " | " + e.isAlta());
         }
     }
 
