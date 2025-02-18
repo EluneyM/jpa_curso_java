@@ -45,6 +45,10 @@ public class AutorServicio {
         return this.autorDao.buscarPorId(id);
     }
 
+    public Autor buscarAutorPorNombre(String nombre) throws Exception {
+        return this.autorDao.buscarPorNombre(nombre);
+    }
+
     public void listaAutores() throws Exception {
         System.out.println("ID | Nombre | Alta");
         for (Autor e : this.autorDao.listar()) {
