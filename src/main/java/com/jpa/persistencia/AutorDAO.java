@@ -27,14 +27,14 @@ public class AutorDAO {
 
     public Autor buscarPorId(int id) throws Exception {
         return this.em
-                .createQuery("SELECTaFROM AutoraWHERE id = :id", Autor.class)
+                .createQuery("SELECT a FROM Autor a WHERE id = :id", Autor.class)
                 .setParameter("id", id)
                 .getSingleResult();
     }
 
     public List<Autor> listar() throws Exception {
         return this.em
-                .createQuery("SELECTaFROM Autor e", Autor.class)
+                .createQuery("SELECT a FROM Autor a", Autor.class)
                 .getResultList();
     }
 
