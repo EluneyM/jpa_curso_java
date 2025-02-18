@@ -19,12 +19,12 @@ public class Editorial {
     private String nombre;
 
     @Column(name = "alta", length = 255)
-    private String alta;
+    private boolean alta;
 
     public Editorial() {
     }
 
-    public Editorial(String nombre, String alta) {
+    public Editorial(String nombre, boolean alta) {
         this.nombre = nombre;
         this.alta = alta;
     }
@@ -45,11 +45,11 @@ public class Editorial {
         this.nombre = nombre;
     }
 
-    public String getAlta() {
+    public boolean getAlta() {
         return alta;
     }
 
-    public void setAlta(String alta) {
+    public void setAlta(boolean alta) {
         this.alta = alta;
     }
 
