@@ -32,6 +32,13 @@ public class LibroDAO {
                 .getSingleResult();
     }
 
+    public List<Libro> buscarPorNombreDeAutor(String nombre) throws Exception {
+        return this.em
+                .createQuery("SELECT l FROM Libro l JOIN autor a WHERE a.nombre = :nombre", Libro.class)
+                .setParameter("nombre", nombre)
+                .getResultList();
+    }
+
     public List<Libro> listar() throws Exception {
         return this.em
                 .createQuery("SELECT l FROM Libro l", Libro.class)

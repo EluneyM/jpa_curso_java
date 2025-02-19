@@ -1,9 +1,15 @@
 package com.jpa.entidades;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "libro")
 public class Libro {
     @Id
     @Column(name = "isbn")
@@ -20,6 +26,14 @@ public class Libro {
 
     @Column(name = "alta")
     private Boolean alta = true;
+
+    @ManyToOne
+    @JoinColumn(name = "autor")
+    private Autor autor;
+
+    @ManyToOne
+    @JoinColumn(name = "editorial")
+    private Editorial editorial;
 
     public Libro(Long isbn, String titulo, int anio, int ejemplares, Boolean alta, Autor autor, Editorial editorial) {
         this.isbn = isbn;
@@ -90,11 +104,4 @@ public class Libro {
         this.editorial = editorial;
     }
 
-    @OneToMany
-    @Column(name = "autor")
-    private Autor autor;
-
-    @OneToMany
-    @Column(name = "editorial")
-    private Editorial editorial;
 }
