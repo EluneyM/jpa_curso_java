@@ -52,6 +52,12 @@ public class EditorialDAO {
                 .getResultList();
     }
 
+    public void darDeBaja(String nombre) throws Exception {
+        Editorial e = buscarPorNombre(nombre);
+        e.setAlta(false);
+        actualizar(e);
+    }
+
     public void eliminar(int id) throws Exception {
         Editorial e = buscarPorId(id);
 

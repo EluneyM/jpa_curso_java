@@ -72,6 +72,12 @@ public class LibroDAO {
                 .getResultList();
     }
 
+    public void darDeBaja(Long isbn) throws Exception {
+        Libro l = buscarPorIsbn(isbn);
+        l.setAlta(false);
+        actualizar(l);
+    }
+
     public void eliminar(int id) throws Exception {
         Libro l = buscarPorId(id);
 

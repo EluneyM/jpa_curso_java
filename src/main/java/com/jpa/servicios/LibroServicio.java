@@ -40,7 +40,7 @@ public class LibroServicio {
     }
 
     public void darDeBajaLibro(Long isbn) throws Exception {
-
+        this.libroDao.darDeBaja(isbn);
     }
 
     private void validarData(

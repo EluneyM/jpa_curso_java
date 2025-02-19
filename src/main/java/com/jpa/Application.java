@@ -111,7 +111,7 @@ public class Application {
     private static void darDeBajaEditorial() throws Exception {
         System.out.println("Ingrese el nombre de la editorial:");
         String nombre = scanner.nextLine();
-        editorialServicio.eliminarEditorialPorNombre(nombre);
+        editorialServicio.darDeBajaEditorial(nombre);
     }
 
     private static void darDeBajaAutor() throws Exception {

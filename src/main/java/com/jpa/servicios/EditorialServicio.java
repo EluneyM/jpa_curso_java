@@ -47,7 +47,7 @@ public class EditorialServicio {
 
         System.out.println("ID | Nombre | Alta");
         System.out.println(e.getId() + " | " + e.getNombre() + " | " + e.isAlta());
-        
+
         return e;
     }
 
@@ -60,6 +60,10 @@ public class EditorialServicio {
         for (Editorial e : this.editorialDao.listar()) {
             System.out.println(e.getId() + " | " + e.getNombre() + " | " + e.isAlta());
         }
+    }
+
+    public void darDeBajaEditorial(String nombre) throws Exception {
+        this.editorialDao.darDeBaja(nombre);
     }
 
     public void eliminarEditorialPorNombre(String nombre) throws Exception {
