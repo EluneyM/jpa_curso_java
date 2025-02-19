@@ -32,6 +32,20 @@ public class EditorialDAO {
                 .getSingleResult();
     }
 
+    public Editorial buscarPorNombre(String nombre) throws Exception {
+        try {
+            return this.em
+                    .createQuery("SELECT e FROM Editorial e WHERE nombre = :nombre", Editorial.class)
+                    .setParameter("nombre", nombre)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception e) {
+            throw e;
+        }
+
+    }
+
     public List<Editorial> listar() throws Exception {
         return this.em
                 .createQuery("SELECT e FROM Editorial e", Editorial.class)
@@ -40,6 +54,16 @@ public class EditorialDAO {
 
     public void eliminar(int id) throws Exception {
         Editorial e = buscarPorId(id);
+
+        if (e != null) {
+            this.em.getTransaction().begin();
+            this.em.remove(e);
+            this.em.getTransaction().commit();
+        }
+    }
+
+    public void eliminarPorNombre(String nombre) throws Exception {
+        Editorial e = buscarPorNombre(nombre);
 
         if (e != null) {
             this.em.getTransaction().begin();

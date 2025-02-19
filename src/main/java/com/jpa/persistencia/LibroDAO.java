@@ -32,9 +32,36 @@ public class LibroDAO {
                 .getSingleResult();
     }
 
+    public Libro buscarPorIsbn(Long isbn) throws Exception {
+        try {
+            return this.em
+                    .createQuery("SELECT l FROM Libro l WHERE isbn = :isbn", Libro.class)
+                    .setParameter("isbn", isbn)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public List<Libro> buscarPorTitulo(String titulo) throws Exception {
+        return this.em
+                .createQuery("SELECT l FROM Libro l WHERE titulo = :titulo", Libro.class)
+                .setParameter("titulo", titulo)
+                .getResultList();
+    }
+
     public List<Libro> buscarPorNombreDeAutor(String nombre) throws Exception {
         return this.em
                 .createQuery("SELECT l FROM Libro l JOIN autor a WHERE a.nombre = :nombre", Libro.class)
+                .setParameter("nombre", nombre)
+                .getResultList();
+    }
+
+    public List<Libro> buscarPorNombreDeEditorial(String nombre) throws Exception {
+        return this.em
+                .createQuery("SELECT l FROM Libro l JOIN editorial e WHERE e.nombre = :nombre", Libro.class)
                 .setParameter("nombre", nombre)
                 .getResultList();
     }

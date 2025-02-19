@@ -46,7 +46,10 @@ public class AutorServicio {
     }
 
     public Autor buscarAutorPorNombre(String nombre) throws Exception {
-        return this.autorDao.buscarPorNombre(nombre);
+        Autor a = this.autorDao.buscarPorNombre(nombre);
+        System.out.println("ID | Nombre | Alta");
+        System.out.println(a.getId() + " | " + a.getNombre() + " | " + a.isAlta());
+        return a;
     }
 
     public void listaAutores() throws Exception {
@@ -60,6 +63,10 @@ public class AutorServicio {
         this.autorDao.eliminar(id);
     }
 
+    public void darDeBajaAutor(String nombre) throws Exception {
+        this.autorDao.darDeBaja(nombre);
+    }
+
     private void editorialExiste(int id) throws Exception {
         try {
             this.autorDao.buscarPorId(id);
@@ -70,12 +77,16 @@ public class AutorServicio {
         }
     }
 
-    public void validarData(String nombre) throws InvalidParameterException {
+    public void validarData(String nombre) throws Exception {
         if (nombre == null) {
-            throw new InvalidParameterException("El nombre no puede ser nulo");
+            throw new InvalidParameterException("El nombre no puede ser nulo.");
         }
         if (nombre.length() < 2) {
-            throw new InvalidParameterException("El nombre debe contener al menos 2 caracteres");
+            throw new InvalidParameterException("El nombre debe contener al menos 2 caracteres.");
+        }
+
+        if (this.autorDao.buscarPorNombre(nombre) != null) {
+            throw new InvalidParameterException("La editorial " + nombre + " ya existe en la base de datos.");
         }
     }
 }

@@ -33,10 +33,24 @@ public class AutorDAO {
     }
 
     public Autor buscarPorNombre(String nombre) throws Exception {
-        return this.em
-                .createQuery("SELECT a FROM Autor a WHERE nombre = :nombre", Autor.class)
-                .setParameter("nombre", nombre)
-                .getSingleResult();
+        try {
+            return this.em
+                    .createQuery("SELECT a FROM Autor a WHERE nombre = :nombre", Autor.class)
+                    .setParameter("nombre", nombre)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public void darDeBaja(String nombre) throws Exception {
+        Autor a = buscarPorNombre(nombre);
+        if (a != null) {
+            a.setAlta(false);
+            actualizar(a);
+        }
     }
 
     public List<Autor> listar() throws Exception {

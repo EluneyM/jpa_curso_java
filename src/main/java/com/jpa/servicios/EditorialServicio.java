@@ -42,6 +42,15 @@ public class EditorialServicio {
         return e;
     }
 
+    public Editorial buscarEditorialPorNombre(String nombre) throws Exception {
+        Editorial e = this.editorialDao.buscarPorNombre(nombre);
+
+        System.out.println("ID | Nombre | Alta");
+        System.out.println(e.getId() + " | " + e.getNombre() + " | " + e.isAlta());
+        
+        return e;
+    }
+
     public Editorial buscarEditorialPorId(int id) throws Exception {
         return this.editorialDao.buscarPorId(id);
     }
@@ -51,6 +60,10 @@ public class EditorialServicio {
         for (Editorial e : this.editorialDao.listar()) {
             System.out.println(e.getId() + " | " + e.getNombre() + " | " + e.isAlta());
         }
+    }
+
+    public void eliminarEditorialPorNombre(String nombre) throws Exception {
+        this.editorialDao.eliminarPorNombre(nombre);
     }
 
     public void eliminarEditorial(int id) throws Exception {
@@ -67,12 +80,16 @@ public class EditorialServicio {
         }
     }
 
-    public void validarData(String nombre) throws InvalidParameterException {
+    public void validarData(String nombre) throws Exception {
         if (nombre == null) {
             throw new InvalidParameterException("El nombre no puede ser nulo");
         }
         if (nombre.length() < 2) {
-            throw new InvalidParameterException("El nombre debe contener al menos 2 caracteres");
+            throw new InvalidParameterException("El nombre debe contener al menos 2 caracteres.");
+        }
+
+        if (this.editorialDao.buscarPorNombre(nombre) != null) {
+            throw new InvalidParameterException("La editorial " + nombre + " ya existe en la base de datos.");
         }
     }
 }
