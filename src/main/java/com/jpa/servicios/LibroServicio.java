@@ -9,8 +9,6 @@ import com.jpa.entidades.Editorial;
 import com.jpa.entidades.Libro;
 import com.jpa.persistencia.LibroDAO;
 
-import jakarta.persistence.NoResultException;
-
 public class LibroServicio {
     private final LibroDAO libroDao;
 
